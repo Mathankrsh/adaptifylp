@@ -51,13 +51,13 @@ export function AudioDemo() {
     const lineRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
-        if (lineRefs.current[currentLine] && scriptRef.current) {
+        if (isPlaying && lineRefs.current[currentLine] && scriptRef.current) {
             lineRefs.current[currentLine]?.scrollIntoView({
                 behavior: "smooth",
                 block: "center"
             });
         }
-    }, [currentLine]);
+    }, [currentLine, isPlaying]);
 
     return (
         <section className="py-16 md:py-32 px-4 md:px-6 bg-[#0A0A0A] text-white overflow-hidden relative">

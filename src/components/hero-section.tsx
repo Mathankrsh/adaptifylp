@@ -66,7 +66,7 @@ export function HeroSection() {
             >
                 <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl border border-neutral-200">
                     <video
-                        src="/multicastdemo.mp4"
+                        src="https://by3nn3vcinsb4n23.public.blob.vercel-storage.com/multicastdemo.mp4"
                         autoPlay
                         loop
                         muted

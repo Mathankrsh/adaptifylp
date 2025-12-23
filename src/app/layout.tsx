@@ -13,6 +13,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Multi-Cast Audiobooks | ElevenReader",
   description: "Experience audiobooks like never before with multi-cast narration — each character brought to life by a unique AI voice.",
+  icons: {
+    icon: "/elevenreader.png",
+    apple: "/elevenreader.png",
+  },
 };
 
 export default function RootLayout({
