@@ -5,7 +5,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 export function HeroSection() {
     return (
-        <section className="relative min-h-screen flex flex-col pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden bg-white">
+        <section className="relative min-h-screen flex flex-col pt-28 md:pt-40 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden bg-white">
             {/* Content Container */}
             <div className="max-w-7xl mx-auto w-full">
                 {/* Text Content - Left Aligned */}
@@ -25,17 +25,17 @@ export function HeroSection() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-[32px] md:text-[48px] font-normal tracking-[-0.03em] leading-[1.15] mb-4 md:mb-6"
                     >
-                        Every character brought to life with a unique AI voice
+                        Every character brought to life with a unique voice
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-sm md:text-base text-neutral-500 leading-relaxed mb-6 md:mb-8 max-w-lg"
+                        className="text-base text-neutral-500 leading-relaxed mb-6 md:mb-8 max-w-lg"
                     >
-                        Transform any book into a cinematic audio experience. Each character gets their own
-                        unique voice — making stories come alive like never before.
+                        Listen to audiobooks where each character has their own distinct voice.
+                        Multi-cast narration makes stories feel like a movie for your ears.
                     </motion.p>
 
                     <motion.div
@@ -64,7 +64,7 @@ export function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="max-w-7xl mx-auto w-full mt-10 md:mt-16"
             >
-                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl border border-neutral-200">
+                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-neutral-200">
                     <video
                         src="https://by3nn3vcinsb4n23.public.blob.vercel-storage.com/multicastdemo.mp4"
                         autoPlay

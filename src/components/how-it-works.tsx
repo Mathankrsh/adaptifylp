@@ -57,7 +57,7 @@ export function HowItWorks() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.15 }}
-                            className="bg-neutral-50 rounded-2xl overflow-hidden border border-neutral-100"
+                            className="bg-neutral-50 rounded-2xl overflow-hidden border border-neutral-200"
                         >
                             {/* Image */}
                             <div className="relative aspect-[4/3] bg-white">

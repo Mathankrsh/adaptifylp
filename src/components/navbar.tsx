@@ -8,17 +8,18 @@ export function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
-        <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
-            <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <header className="absolute top-0 left-0 right-0 z-50 bg-transparent px-4 md:px-6">
+            <nav className="max-w-7xl mx-auto py-5 flex items-center justify-between">
                 {/* Logo */}
                 <a href="/" className="flex items-center">
                     <Image
                         src="/elevenreader.png"
                         alt="ElevenReader"
-                        width={160}
-                        height={36}
-                        className="h-8 w-auto"
+                        width={120}
+                        height={28}
+                        className="h-9 w-auto"
                         priority
+                        unoptimized
                     />
                 </a>
 

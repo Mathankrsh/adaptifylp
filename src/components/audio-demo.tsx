@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Pause, SkipBack, SkipForward, Volume2 } from "lucide-react";
+import { Play, Pause, SkipBack, SkipForward, Volume2, BookOpen } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Avatar from "boring-avatars";
 
@@ -52,10 +52,14 @@ export function AudioDemo() {
 
     useEffect(() => {
         if (isPlaying && lineRefs.current[currentLine] && scriptRef.current) {
-            lineRefs.current[currentLine]?.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+            const container = scriptRef.current;
+            const activeElement = lineRefs.current[currentLine];
+            if (activeElement) {
+                const containerRect = container.getBoundingClientRect();
+                const elementRect = activeElement.getBoundingClientRect();
+                const scrollTop = activeElement.offsetTop - container.offsetTop - (containerRect.height / 2) + (elementRect.height / 2);
+                container.scrollTo({ top: scrollTop, behavior: "smooth" });
+            }
         }
     }, [currentLine, isPlaying]);
 
@@ -109,7 +113,7 @@ export function AudioDemo() {
                         <div className="flex items-center justify-between mb-12">
                             <div className="flex items-center gap-3">
                                 <div className="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center">
-                                    <Play className="w-5 h-5 fill-current" />
+                                    <BookOpen className="w-5 h-5" />
                                 </div>
                                 <div>
                                     <h4 className="font-medium">A Study in Scarlet</h4>
@@ -163,6 +167,11 @@ export function AudioDemo() {
                             </button>
                             <SkipForward className="w-6 h-6 text-neutral-500 hover:text-white cursor-pointer transition-colors" />
                         </div>
+
+                        {/* Disclaimer */}
+                        <p className="text-center text-xs text-neutral-500 mt-6">
+                            *Demo audio player to illustrate the Multi-Cast experience
+                        </p>
                     </motion.div>
                 </div>
             </div>
