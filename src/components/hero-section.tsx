@@ -2,16 +2,27 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { GridLines } from "@/components/grid-lines";
 
-const platforms = [
-    { name: "Google", logo: "/google-2015-new-logo-png_seeklogo-268031.png", scale: 1 },
-    { name: "ChatGPT", logo: "/pngimg.com - chatgpt_PNG13.png", scale: 1 },
-    { name: "Claude", logo: "/claude-logo-png_seeklogo-554540.png", scale: 1.25 },
-    { name: "Perplexity", logo: "/Perplexity-Logo.png", scale: 0.85 },
+import googleLogo from "@/../public/google.png";
+import chatgptLogo from "@/../public/pngimg.com - chatgpt_PNG13.png";
+import claudeLogo from "@/../public/claude-logo-png_seeklogo-554540.png";
+import perplexityLogo from "@/../public/Perplexity-Logo.png";
+
+interface Platform {
+    name: string;
+    logo: StaticImageData;
+    scale: number;
+}
+
+const platforms: Platform[] = [
+    { name: "Google", logo: googleLogo, scale: 1 },
+    { name: "ChatGPT", logo: chatgptLogo, scale: 1 },
+    { name: "Claude", logo: claudeLogo, scale: 1.25 },
+    { name: "Perplexity", logo: perplexityLogo, scale: 0.85 },
 ];
 
 function PlatformRotator() {
@@ -27,7 +38,21 @@ function PlatformRotator() {
     const platform = platforms[currentIndex];
 
     return (
-        <span className="inline-flex justify-center items-center w-[220px] align-middle -ml-3 md:-ml-5 h-[80px] md:h-[112px]">
+        <span className="inline-flex justify-center items-center w-[220px] align-middle -ml-3 md:-ml-5 h-[80px] md:h-[112px] relative">
+            {/* Preload all images (hidden) for instant animation */}
+            <div className="absolute inset-0 opacity-0 pointer-events-none" aria-hidden="true">
+                {platforms.map((p) => (
+                    <Image
+                        key={p.name}
+                        src={p.logo}
+                        alt=""
+                        width={220}
+                        height={112}
+                        priority
+                        placeholder="blur"
+                    />
+                ))}
+            </div>
             <AnimatePresence mode="wait">
                 <motion.span
                     key={platform.name}
@@ -44,6 +69,7 @@ function PlatformRotator() {
                         height={112}
                         className="h-full w-auto object-contain"
                         style={{ transform: `scale(${platform.scale})` }}
+                        placeholder="blur"
                         priority
                     />
                 </motion.span>
