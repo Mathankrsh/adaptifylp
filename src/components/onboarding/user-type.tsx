@@ -73,6 +73,11 @@ export function UserType({ selectedType, onSelectionChange }: UserTypeProps) {
                     );
                 })}
             </div>
+            <div className="flex justify-center mt-8">
+                <p className="text-xs text-neutral-400 font-medium">
+                    * This is a mock onboarding for demonstration purposes
+                </p>
+            </div>
         </div>
     );
 }

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { GridLines } from "@/components/grid-lines";
@@ -26,7 +27,7 @@ function PlatformRotator() {
     const platform = platforms[currentIndex];
 
     return (
-        <span className="inline-flex justify-center items-center w-[220px] align-middle -ml-3 md:-ml-5">
+        <span className="inline-flex justify-center items-center w-[220px] align-middle -ml-3 md:-ml-5 h-[80px] md:h-[112px]">
             <AnimatePresence mode="wait">
                 <motion.span
                     key={platform.name}
@@ -34,13 +35,16 @@ function PlatformRotator() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="flex justify-center items-center w-full"
+                    className="flex justify-center items-center w-full h-full"
                 >
-                    <img
+                    <Image
                         src={platform.logo}
                         alt={platform.name}
-                        className="h-20 md:h-28 w-auto object-contain"
+                        width={220}
+                        height={112}
+                        className="h-full w-auto object-contain"
                         style={{ transform: `scale(${platform.scale})` }}
+                        priority
                     />
                 </motion.span>
             </AnimatePresence>
@@ -59,6 +63,10 @@ export function HeroSection() {
             router.push("/onboarding");
         }
     };
+
+    useEffect(() => {
+        router.prefetch("/onboarding");
+    }, [router]);
 
     return (
         <section className="relative min-h-[80vh] flex flex-col pt-32 md:pt-48 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden bg-white border-b border-neutral-200">
