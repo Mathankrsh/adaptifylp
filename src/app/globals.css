@@ -4,18 +4,43 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --color-brand: var(--brand);
 
   --radius-xl: 24px;
   --radius-2xl: 32px;
   --radius-full: 9999px;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 :root {
   --background: #ffffff;
   --foreground: #000000;
-  --accent: #000000;
+  --accent: #4f47e6;
+  --brand: #4f47e6;
 
   --card: #ffffff;
   --card-foreground: #000000;
@@ -27,7 +52,8 @@
 .dark {
   --background: #0a0a0a;
   --foreground: #ffffff;
-  --accent: #ffffff;
+  --accent: #4f47e6;
+  --brand: #4f47e6;
 
   --card: #121212;
   --card-foreground: #ffffff;
@@ -52,5 +78,5 @@ body {
 }
 
 .gradient-text {
-  color: #525252;
+  color: #4f47e6;
 }

@@ -1,8 +1,8 @@
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
-import { HowItWorks } from "@/components/how-it-works";
-import { AudioDemo } from "@/components/audio-demo";
-import { VoiceGallery } from "@/components/voice-gallery";
+import { ProcessSection } from "@/components/process-section";
+import { GrowthSection } from "@/components/growth-section";
+import { ProposalsSection } from "@/components/proposals-section";
 import { Testimonials } from "@/components/testimonials";
 import { CTASection, Footer } from "@/components/footer";
 
@@ -11,9 +11,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <HowItWorks />
-      <AudioDemo />
-      <VoiceGallery />
+      <ProcessSection />
+      <GrowthSection />
+      <ProposalsSection />
       <Testimonials />
       <CTASection />
       <Footer />
